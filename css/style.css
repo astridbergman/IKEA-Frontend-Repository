@@ -1,0 +1,12 @@
+header{
+    background-color: blueviolet;
+}
+
+.wrapper{
+    display: grid; /*Vi behöver inte ha en display grid men det är en start*/
+    background-color: aqua;
+}
+
+footer{
+    background-color: red;
+}
