@@ -1,12 +1,35 @@
-header{
-    background-color: blueviolet;
+body{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: blue;
+    .header{
+        margin-right: 1rem;
+    }
+    
+    nav{
+        display: flex;
+        background-color: hotpink;
+
+        div{
+            padding: 2rem;
+            background-color: yellow;
+        }
+    }
+}
+
+
 .wrapper{
-    display: grid; /*Vi behöver inte ha en display grid men det är en start*/
+    display: grid; /* Vi behöver inte ha en display grid men det är en start*/
     background-color: aqua;
 }
 
 footer{
     background-color: red;
-}
+} 
