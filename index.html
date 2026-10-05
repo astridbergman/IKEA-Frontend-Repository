@@ -7,21 +7,60 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- <script defer src=''></script> ///// inanför '' i src ska våran script ligga om vi vill ha det -->
 </head>
+
 <body>
-    <Header>
-        <h1>IKEA</h1>
-    </Header>
+    <header class="header">
+        <div class="topbar">
+            <div class="language">
+                <div class="globe" aria-hidden="true">
+                    <p>placeholder</p>
+                </div>
+                <span>EN | english</span>
+            </div>
+
+        </div>
+        <div class="logobar">
+            <div class="ikea-logo" aria-label="IKEA">
+                IKEA Logo Placeholder Text teehee (●ˇ∀ˇ●)
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <aside class="sidebar">
+            <div class="search">
+                <input type="text" placeholder="Search..." aria-label="Search">
+            </div>
+        </aside>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>
+                    <span>FairSource</span>
+                    <strong>
+                        A healthy supply chain<br>
+                        across the world
+                    </strong>
+                </h1>
+
+                <button class="arrow-button" aria-label="Start">
+                    <span></span>
+                </button>
+            </div>
+        </section>
+    </main>
     
-    <div class="wrapper">    
-        <h1>FairScour</h1>
 
-        <div class="maps"></div>
-        <div class="info"></div>
+    <footer class="footer">
+        <nav class="footer-nav" aria-label="Footer Navigation">
 
-        <footer class="footer">
-            <p>Här är fottern!</p>
-        </footer>
-    </div>
-
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Cookies</a>
+        </nav>
+    </footer>
 </body>
 </html>
