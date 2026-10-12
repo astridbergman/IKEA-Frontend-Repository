@@ -5,62 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IKEA FairSource</title>
     <link rel="stylesheet" href="/css/style.css">
+
     <!-- <script defer src=''></script> ///// inanför '' i src ska våran script ligga om vi vill ha det -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-include]').forEach(async (el) => {
+                const file = `includes/${el.dataset.include}.html`;
+                const response = await fetch(file);
+                if (response.ok) {
+                    el.innerHTML = await response.text();
+                } else {
+                    console.error(`Could not load ${file}`);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <header class="header">
-        <div class="topbar">
-            <div class="language">
-                <div class="globe" aria-hidden="true">
-                    <p>placeholder</p>
-                </div>
-                <span>EN | english</span>
-            </div>
 
+<div data-include="header"></div>
+<main class="main">
+    <aside class="sidebar">
+        <div class="search">
+            <input type="text" placeholder="Search..." aria-label="Search">
         </div>
-        <div class="logobar">
-            <div class="ikea-logo" aria-label="IKEA">
-                IKEA Logo Placeholder Text teehee (●ˇ∀ˇ●)
-            </div>
+    </aside>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                <span>FairSource</span>
+                <strong>
+                    A healthy supply chain<br>
+                    across the world
+                </strong>
+            </h1>
+
+            <button class="arrow-button" aria-label="Start">
+                <span></span>
+            </button>
         </div>
-    </header>
+    </section>
+</main>
 
-    <main class="main">
-        <aside class="sidebar">
-            <div class="search">
-                <input type="text" placeholder="Search..." aria-label="Search">
-            </div>
-        </aside>
+<div data-include="footer"></div>
 
-        <section class="hero">
-
-            <div class="hero-content">
-
-                <h1>
-                    <span>FairSource</span>
-                    <strong>
-                        A healthy supply chain<br>
-                        across the world
-                    </strong>
-                </h1>
-
-                <button class="arrow-button" aria-label="Start">
-                    <span></span>
-                </button>
-            </div>
-        </section>
-    </main>
-    
-
-    <footer class="footer">
-        <nav class="footer-nav" aria-label="Footer Navigation">
-
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Cookies</a>
-        </nav>
-    </footer>
 </body>
 </html>

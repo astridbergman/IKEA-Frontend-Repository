@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKEA FairSource</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- <script defer src=''></script> ///// inanför '' i src ska våran script ligga om vi vill ha det -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-include]').forEach(async (el) => {
+                const file = `includes/${el.dataset.include}.html`;
+                const response = await fetch(file);
+                if (response.ok) {
+                    el.innerHTML = await response.text();
+                } else {
+                    console.error(`Could not load ${file}`);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<div data-include="header"></div>
+Our target audience
+
+Our product is targeted towards employees at IKEA who seek to keep track of working conditions in China when planning production in the country, so that they can minimize harm done to workers.
+
+The product allows employees to easily visualize the working conditions in each region in the country, so that they can quickly and effectively gauge whether to accept business in a region.
+
+The Implementation
+
+Our prototype will feature hand-gathered data taken from news publications and research articles regarding the regions of China. This will then be analyzed and put into our scoring system to get a single number representing the situations in each region that the user can see.
+
+Future iterations will see the process of gathering and interpreting data being assisted by AI.
+
+What’s in it for IKEA?
+
+This product aligns with IKEA:s goal to reduce inequality in its chain of production. It helps IKEA become more aware of how labour rights look in the regions it seeks to do business in, and thus allows them to make informed decisions that align with their values.
+
+<div data-include="footer"></div>
