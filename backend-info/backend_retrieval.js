@@ -16,4 +16,24 @@ async function getData() {
 
 }
 
-getData();
+async function displayRegions(document) {
+  const data = await getData();
+
+  for (let i = 0; i < data.length; i++) {
+    const region = data[i];
+
+    const regionElement = document.createElement('div');
+    regionElement.classList.add('region');
+
+    const nameElement = document.createElement('h2');
+    nameElement.textContent = region.region;
+
+    const scoreElement = document.createElement('p');
+    scoreElement.textContent = `Score: ${region.score}`;
+
+    regionElement.appendChild(nameElement);
+    regionElement.appendChild(scoreElement);
+
+    document.body.appendChild(regionElement);
+  }
+}
