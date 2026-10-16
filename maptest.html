@@ -40,7 +40,24 @@
     <div id="map" aria-label="Interactive map of China"></div>
   </main>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="script/app.js"></script>
+
+
+  <div id="regionModal" class="modal-overlay" hidden>
+    <div class="modal-content" role="dialog"
+        aria-modal="true" aria-labelledby="modalTitle">
+
+        <button id="closeModal" class="modal-close"
+                aria-label="Close popup">&times;</button>
+
+        <h2 id="modalTitle">Region name</h2>
+        <div id="modalSources">
+        <p>Select a region to view its information.</p>
+        </div>
+
+    </div>
+   </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script/app.js"></script>
 </body>
 </html>
