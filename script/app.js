@@ -482,10 +482,18 @@ async function initialiseMap() {
       maxScore = Math.max(...scores);
     }
 
-    regions = geojson.features;
+    regions = geojson.features.filter(feature => {
+      return canonicalName(regionName(feature)) !== "taiwan";
+    });
+
+    // Create the province polygons using only the filtered regions.
+    const filteredGeojson = {
+      ...geojson,
+      features: regions
+    };
 
     // Create the province polygons.
-    geoJsonLayer = L.geoJSON(geojson, {
+    geoJsonLayer = L.geoJSON(filteredGeojson, {
       style: defaultStyle,
 
       onEachFeature(feature, layer) {
