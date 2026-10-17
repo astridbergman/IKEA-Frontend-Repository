@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore China</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+</head>
+<body>
+  <main class="explorer">
+    <aside class="sidebar">
+      <h1>Explore China</h1>
+
+      <input
+        id="regionSearch"
+        type="search"
+        placeholder="Search provinces..."
+        aria-label="Search provinces"
+      >
+    <div class="legend">
+        <span>Score</span>
+        <div class="legend-gradient"></div>
+        <div class="legend-labels">
+            <span>Low</span>
+            <span>High</span>
+        </div>
+    </div>
+      <ul id="regionList"></ul>
+
+      <section id="regionInfo" aria-live="polite">
+        <p>Select a province on the map or in the list.</p>
+      </section>
+    </aside>
+
+    <div id="map" aria-label="Interactive map of China"></div>
+  </main>
+
+
+
+  <div id="regionModal" class="modal-overlay" hidden>
+    <div class="modal-content" role="dialog"
+        aria-modal="true" aria-labelledby="modalTitle">
+
+        <button id="closeModal" class="modal-close"
+                aria-label="Close popup">&times;</button>
+
+        <h2 id="modalTitle">Region name</h2>
+        <div id="modalSources">
+        <p>Select a region to view its information.</p>
+        </div>
+
+    </div>
+   </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script/app.js"></script>
+</body>
+</html>
