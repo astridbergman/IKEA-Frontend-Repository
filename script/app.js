@@ -61,8 +61,8 @@ let scoresByRegion = new Map();
 let geoJsonLayer = null;
 let selectedLayer = null;
 
-let minScore = 0;
-let maxScore = 100;
+let minScore = 1;
+let maxScore = 10;
 
 // Used to prevent an earlier source request from replacing
 // the data for a more recently selected region.
@@ -477,10 +477,6 @@ async function initialiseMap() {
 
     const scores = [...scoresByRegion.values()];
 
-    if (scores.length > 0) {
-      minScore = Math.min(...scores);
-      maxScore = Math.max(...scores);
-    }
 
     regions = geojson.features.filter(feature => {
       return canonicalName(regionName(feature)) !== "taiwan";
