@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IKEA FairSource</title>
-    <link rel="stylesheet" href="/css/style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FairSource</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <!-- <script defer src=''></script> ///// inanför '' i src ska våran script ligga om vi vill ha det -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -20,24 +22,43 @@
             });
         });
     </script>
+    <script>
+        // Minimal carousel: arrows move the highlighted (cream) card
+        (function () {
+            var cards = document.querySelectorAll('.carousel .card');
+            var current = 0;
+            function show(i) {
+                current = (i + cards.length) % cards.length;
+                cards.forEach(function (c, idx) {
+                    c.classList.toggle('card--active', idx === current);
+                });
+            }
+            document.querySelector('.carousel__btn--prev').addEventListener('click', function () { show(current - 1); });
+            document.querySelector('.carousel__btn--next').addEventListener('click', function () { show(current + 1); });
+        })();
+    </script>
 </head>
 
 <body>
 
-<div data-include="header"></div>
-<main class="main">
-    <aside class="sidebar">
-        <div class="search">
-            <input type="text" placeholder="Search..." aria-label="Search">
-        </div>
-    </aside>
+<header class="navbar">
+    <a href="#top" class="navbar__logo" aria-label="FairSource home">
+        <img src="images/ikea-logo.png" alt="IKEA logo">
+    </a>
+    <button class="navbar__lang" type="button" aria-label="Change language">
+        <img src="images/globe.png" alt="" class="navbar__globe">
+        <span class="navbar__lang-code">EN</span>
+        <span class="navbar__lang-divider"></span>
+        <span class="navbar__lang-name">english</span>
+    </button>
+</header>
 
+<main id="top">
     <section class="hero">
-
         <div class="hero-content">
-
             <h1>
                 <span>FairSource</span>
+                <br>
                 <strong>
                     A healthy supply chain<br>
                     across the world
@@ -79,9 +100,111 @@
             </button>
         </div>
     </section>
-</main>
+    <section class="audience" id="audience">
+        <div class="audience__content">
+            <h2 class="heading heading--navy">Are you our audience?</h2>
+            <div class="audience__text">
+                <p>Our product is targeted towards employees at IKEA who seek to keep track of working conditions in China when planning production in the country, so that they can minimize harm done to workers.</p>
+                <p>The product allows employees to easily visualize the working conditions in each region in the country, so that they can quickly and effectively gauge whether to accept business in a region.</p>
+            </div>
+        </div>
+        <img class="audience__icon" src="images/person-question.png" alt="Person with a question mark">
+    </section>
 
-<div data-include="footer"></div>
+    <section class="ikea">
+        <img class="ikea__bg" src="images/ikea-background.png" alt="">
+        <p class="ikea__text">This product aligns with IKEA:s goal to reduce inequality in its chain of production. It helps IKEA become more aware of how labour rights look in the regions it seeks to do business in, and thus allows them to make informed decisions that align with their values.</p>
+    </section>
 
+    <div class="banner" aria-hidden="true">
+        <ul class="banner__group">
+            <li>Anhui</li><li>Fujian</li><li>Gansu</li><li>Guangdong</li><li>Hainan</li><li>Hebei</li><li>Heilongjiang</li><li>Henan</li><li>Hubei</li><li>Hunan</li><li>Jiangsu</li><li>Jiangxi</li><li>Jilin</li><li>Liaoning</li><li>Qinghai</li><li>Shaanxi</li><li>Shandong</li><li>Shanxi</li><li>Sichuan</li><li>Yunnan</li><li>Zhejiang</li>
+        </ul>
+    </div>
+
+    <section class="flow">
+        <h2 class="heading heading--white">System flow</h2>
+        <!-- Whole flow visual (icons, arrows, captions) is one PNG -->
+        <img class="flow__visual" src="images/system-flow.png"
+             alt="System flow: hand-gathered data from news and research is analyzed and scored, stored in the database, combined with user criteria into a final province score, and shown in a map interface.">
+    </section>
+
+    <section class="dimensions">
+        <h2 class="heading heading--black">Five Dimensions</h2>
+
+        <div class="carousel">
+            <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Previous dimension">
+                <svg viewBox="0 0 40 24" aria-hidden="true"><path d="M38 12H4M14 2L3 12l11 10" fill="none" stroke="#000" stroke-width="3.5"/></svg>
+            </button>
+
+            <div class="carousel__viewport">
+                <article class="card card--active" data-index="0">
+                    <h3 class="card__title">Individual Dimension</h3>
+                    <div class="card__body">
+                        <p>Fairsource positively affects individual workers. By allowing IKEA to make informed decisions regarding which regions to purchase from, it incentivizes production facilities across the country to improve their standards.</p>
+                        <p>This naturally benefits the workers at those factories. Workers live healthier lives, follow stricter safety standards and have more spare time to pursue other goals.</p>
+                    </div>
+                </article>
+
+                <article class="card" data-index="1">
+                    <h3 class="card__title card__title--center">Social</h3>
+                    <div class="card__body"></div>
+                </article>
+
+                <article class="card" data-index="2">
+                    <h3 class="card__title card__title--center">Environmental</h3>
+                    <div class="card__body"></div>
+                </article>
+            </div>
+
+            <button class="carousel__btn carousel__btn--next" type="button" aria-label="Next dimension">
+                <svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h34M26 2l11 10-11 10" fill="none" stroke="#000" stroke-width="3.5"/></svg>
+            </button>
+        </div>
+
+        <!-- Dimension pentagon is a single PNG -->
+        <img class="dimensions__pentagon" src="images/dimension-pentagon.png"
+             alt="Pentagon diagram of the five dimensions (Individual, Social, Environmental, Technical, Economic) around 'Your software'">
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__contact">
+            <h2 class="footer__heading">Contact information:</h2>
+
+            <div class="contacts">
+                <div class="contact">
+                    <h3>Joel Fagersand</h3>
+                    <a href="mailto:joel.fagersand@gmail.com">joel.fagersand@gmail.com</a>
+                    <a href="mailto:joelfa@chalmers.it">joelfa@chalmers.it</a>
+                </div>
+                <div class="contact">
+                    <h3>Astrid Frida Maria Bergman</h3>
+                    <a href="mailto:astridfridabergman@gmail.com">astridfridabergman@gmail.com</a>
+                    <a href="mailto:astribe@chalmers.it">astribe@chalmers.it</a>
+                </div>
+                <div class="contact">
+                    <h3>Sixten Paulsson</h3>
+                    <a href="mailto:sixtenpaulsson@gmail.com">sixtenpaulsson@gmail.com</a>
+                    <a href="mailto:sixtenpa@chalmers.it">sixtenpa@chalmers.it</a>
+                </div>
+                <div class="contact">
+                    <h3>Melissa Sixtensson Wisén</h3>
+                </div>
+                <div class="contact">
+                    <h3>Emma Gran</h3>
+                </div>
+                <div class="contact">
+                    <h3>Niklas Botold</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chalmers logo (with course code) is a PNG -->
+        <div class="footer__logo">
+            <img src="images/chalmers-logo.png" alt="Chalmers University of Technology">
+            <span class="footer__course">TEK830</span>
+        </div>
+    </footer>
 </body>
 </html>
