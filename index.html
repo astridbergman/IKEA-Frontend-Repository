@@ -23,19 +23,23 @@
         });
     </script>
     <script>
-        // Minimal carousel: arrows move the highlighted (cream) card
-        (function () {
-            var cards = document.querySelectorAll('.carousel .card');
-            var current = 0;
+        // Carousel: arrows move focus between cards; the focused card expands
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.carousel .card');
+            const prev = document.querySelector('.carousel__btn--prev');
+            const next = document.querySelector('.carousel__btn--next');
+            let current = 0;
+
             function show(i) {
                 current = (i + cards.length) % cards.length;
-                cards.forEach(function (c, idx) {
-                    c.classList.toggle('card--active', idx === current);
+                cards.forEach((card, idx) => {
+                    card.classList.toggle('card--active', idx === current);
                 });
             }
-            document.querySelector('.carousel__btn--prev').addEventListener('click', function () { show(current - 1); });
-            document.querySelector('.carousel__btn--next').addEventListener('click', function () { show(current + 1); });
-        })();
+
+            prev.addEventListener('click', () => show(current - 1));
+            next.addEventListener('click', () => show(current + 1));
+        });
     </script>
 </head>
 
@@ -55,47 +59,20 @@
 
 <main id="top">
     <section class="hero">
+        <img class="hero__bg" src="images/china-background.png" alt="">
+
         <div class="hero-content">
             <h1>
                 <span>FairSource</span>
-                <br>
-                <strong>
-                    A healthy supply chain<br>
-                    across the world
-                </strong>
+                <strong>A healthy supply chain across the world</strong>
             </h1>
 
-            <a href="maptest.html" class="arrow-button"></a>
-
-            <script>
-                function myMap() {
-                    var mapProp= {
-                        center:new google.maps.LatLng(31.253166,121.476629),
-                        zoom:4.2,
-                    };
-                    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-                }
-
-                const circle = new google.maps.circle({
-                    strokeColor: "#FF0000",       // Outline color
-                    strokeOpacity: 0.8,           // Outline opacity
-                    strokeWeight: 5,              // Outline thickness
-                    fillColor: "#FF0000",         // Fill color
-                    fillOpacity: 0.35,            // Fill opacity
-                    map: myMap,                     // Attach to map
-                    center: center,               // Circle center
-                    radius: 75000
-                });
-
-                
-            </script>
-
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4kDAmx2QiOjRfrg2_1Edr5PztkSDRkFA&callback=myMap"></script>
-
-
-        
+            <a href="maptest.html" class="btn-arrow" aria-label="Open the map">
+                <svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h34M26 2l11 10-11 10" fill="none" stroke="#000" stroke-width="3.5"/></svg>
+            </a>
         </div>
     </section>
+
     <section class="audience" id="audience">
         <div class="audience__content">
             <h2 class="heading heading--navy">Are you our audience?</h2>
@@ -113,6 +90,9 @@
     </section>
 
     <div class="banner" aria-hidden="true">
+        <ul class="banner__group">
+            <li>Anhui</li><li>Fujian</li><li>Gansu</li><li>Guangdong</li><li>Hainan</li><li>Hebei</li><li>Heilongjiang</li><li>Henan</li><li>Hubei</li><li>Hunan</li><li>Jiangsu</li><li>Jiangxi</li><li>Jilin</li><li>Liaoning</li><li>Qinghai</li><li>Shaanxi</li><li>Shandong</li><li>Shanxi</li><li>Sichuan</li><li>Yunnan</li><li>Zhejiang</li>
+        </ul>
         <ul class="banner__group">
             <li>Anhui</li><li>Fujian</li><li>Gansu</li><li>Guangdong</li><li>Hainan</li><li>Hebei</li><li>Heilongjiang</li><li>Henan</li><li>Hubei</li><li>Hunan</li><li>Jiangsu</li><li>Jiangxi</li><li>Jilin</li><li>Liaoning</li><li>Qinghai</li><li>Shaanxi</li><li>Shandong</li><li>Shanxi</li><li>Sichuan</li><li>Yunnan</li><li>Zhejiang</li>
         </ul>
@@ -137,19 +117,41 @@
                 <article class="card card--active" data-index="0">
                     <h3 class="card__title">Individual Dimension</h3>
                     <div class="card__body">
-                        <p>Fairsource positively affects individual workers. By allowing IKEA to make informed decisions regarding which regions to purchase from, it incentivizes production facilities across the country to improve their standards.</p>
+                        <p>FairSource positively affects individual workers. By allowing IKEA to make informed decisions regarding which regions to purchase from, it incentivizes production facilities across the country to improve their standards.</p>
                         <p>This naturally benefits the workers at those factories. Workers live healthier lives, follow stricter safety standards and have more spare time to pursue other goals.</p>
                     </div>
                 </article>
 
                 <article class="card" data-index="1">
                     <h3 class="card__title card__title--center">Social</h3>
-                    <div class="card__body"></div>
+                    <div class="card__body">
+                        <p>FairSource gives workers more free time due to an eased workflow and a close eye on their good treatment, ensuring no region falls behind in wellness.</p>
+                        <p>The result is happier workers that lead to a happier society, with an effectivized and healthy worklife.</p>
+                    </div>
                 </article>
 
                 <article class="card" data-index="2">
                     <h3 class="card__title card__title--center">Environmental</h3>
-                    <div class="card__body"></div>
+                    <div class="card__body">
+                        <p>FairSource helps ensure that any improper treatment of environmental factors are dealt with, minimizing pollution by making the subject of pollution more serious.</p>
+
+                    </div>
+                </article>
+
+                <article class="card" data-index="2">
+                    <h3 class="card__title card__title--center">Economic</h3>
+                    <div class="card__body">
+                        <p>FairSource lead to happier workers, which leads to a more motivated and healthy workplace. Production and standards increase the more wellness increases.</p>
+                        <p>By ensuring that a nation has humane treatments in every region, its local economies are enforced, leading to more sales and prosperity.</p>
+                    </div>
+                </article>
+
+                <article class="card" data-index="2">
+                    <h3 class="card__title card__title--center">Technical</h3>
+                    <div class="card__body">
+                        <p>FairSource's implementation is easy and quick to understand, making it very easy to add more sources than just a singular nation. Its use is relevant anywhere across the world with a workplace.</p>
+                        <p>To use FairSource for more than just a single country is the ultimate end goal, and one that is not far from our grasp.</p>
+                    </div>
                 </article>
             </div>
 
@@ -159,8 +161,15 @@
         </div>
 
         <!-- Dimension pentagon is a single PNG -->
+        <div class="pentagon">
         <img class="dimensions__pentagon" src="images/dimension-pentagon.png"
              alt="Pentagon diagram of the five dimensions (Individual, Social, Environmental, Technical, Economic) around 'Your software'">
+        <div class="pentagon__content">
+            <h1>Five Dimensions of Sustainable Development</h1>
+            <p>FairSource being fully sustainable in every aspect is one of our key agendas. As such, we have mapped the five dimensions in which FairSource is beneficial and sustainable on an individual, social, environmental, econonmic, technical and individual level.</p>
+            <p>If you have any concerns or questions regarding the five dimensions listed here, please do contact us through the information at the bottom of this page.</p>
+        </div>
+        </div>
     </section>
     </main>
 
