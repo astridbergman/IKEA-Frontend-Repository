@@ -442,6 +442,39 @@ ul { margin: 0; padding: 0; list-style: none; }
     color: var(--black);
 }
 
+.arrow-button {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 26px;
+    background: #ffd447;
+    border-radius: 10px;
+}
+
+/* Arrow shaft */
+.arrow-button::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 3px;
+    background: black;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+}
+
+/* Arrowhead */
+.arrow-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    transform: translate(5px, -50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 12px solid black;
+}
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */

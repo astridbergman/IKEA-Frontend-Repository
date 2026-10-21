@@ -367,3 +367,73 @@ body {
 .modal-error {
   padding: 12px 0;
 }
+
+@media (max-width: 640px) {
+    .navbar { gap: 16px; padding: 0 16px; height: 96px; }
+    .navbar__logo { width: 72px; height: 72px; border-radius: 16px; }
+    .navbar__logo--small { width: 84px; height: 62px; }
+    .navbar__lang { font-size: 1rem; gap: 10px; }
+    .navbar__globe { width: 32px; height: 32px; }
+
+    .contacts { grid-template-columns: 1fr; }
+    .banner__group li { padding: 0 28px; font-size: 1.15rem; }
+}
+
+.navbar__globe { width: 48px; height: 48px; }
+.navbar__lang-divider {
+    width: 1.5px;
+    height: 20px;
+    background: var(--white);
+    margin: 0 -8px;
+}
+.navbar__lang-name { font-weight: 500; }
+
+.navbar__lang {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: var(--white);
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    height: 125px;
+    padding: 0 41px;
+    background: var(--navy-dark);
+}
+
+.navbar__logo {
+    display: block;
+    width: 110px;
+    height: 110px;
+    border-radius: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.navbar__logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.navbar__logo--small {
+    width: 124px;
+    height: 90px;
+    border-radius: 20px;
+}
+
+:root {
+    --navy-dark: #132742;      /* navbar, tickers */
+    --navy: #1e3a5f;           /* system flow, footer */
+    --navy-text: #1e3a63;      /* headings on cream */
+    --cream: #f9f0d9;          /* page / hero / audience */
+    --yellow: #f4c84a;         /* buttons */
+    --periwinkle-light: #d8e0f5;   /* dimensions background */
+    --periwinkle: #b6c1eb;         /* carousel panel */
+    --card-grey: #d9d9d9;
+    --black: #000;
+    --white: #fff;
+
+    --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
