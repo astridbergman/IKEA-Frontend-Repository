@@ -384,8 +384,14 @@ async function openRegionModal(regionNameValue) {
       card.className = "source-card";
 
       const heading = document.createElement("h3");
+      if (source["type of source"] == "un") {
+        source["type of source"] = "UN";
+      }
       heading.textContent =
-        source["type of source"] ?? "Uncategorized source";
+        `Type of source: ${source["type of source"].charAt(0).toUpperCase() + source["type of source"].slice(1) ?? "Uncategorized source"}`;
+
+      const whitespace2 = document.createElement("div");
+      whitespace2.style.height = "8px";
 
       const score = document.createElement("p");
       score.className = "source-score";
@@ -394,12 +400,18 @@ async function openRegionModal(regionNameValue) {
           ? `Score: ${source.score}`
           : "Score unavailable";
 
+      const whitespace1 = document.createElement("div");
+      whitespace1.style.height = "8px";
+
+      const summaryTitle = document.createElement("h4");
+      summaryTitle.textContent = "Summary";
+
       const summary = document.createElement("p");
       summary.className = "source-summary";
       summary.textContent =
         source.summary || "No summary available.";
 
-      card.append(heading, score, summary);
+      card.append(heading, whitespace2, score, whitespace1, summaryTitle, summary);
       modalSources.appendChild(card);
     });
   } catch (error) {
