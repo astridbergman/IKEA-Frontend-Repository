@@ -320,7 +320,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .card {
     display: flex;
     flex-direction: column;
-    width: 266px;
+    width: 210px;
     min-height: 420px;
     border-radius: 14px;
     background: var(--card-grey);
